@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/itemLayout"
+    android:focusable="true"
+    android:clickable="true"
+    android:background="#C3C3C3"
+    android:layout_margin="10dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/name"
+        tools:text="@tools:sample/full_names"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textColor="#121212"
+        tools:layout_conversion_absoluteHeight="50dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_conversion_absoluteWidth="392dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/address"
+        tools:text="@tools:sample/full_names"
+        android:padding="5dp"
+        android:textColor="#121212"
+        tools:layout_conversion_absoluteHeight="50dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_conversion_absoluteWidth="392dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@tools:sample/full_names"
+        android:padding="5dp"
+        android:textColor="#121212"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/type"
+        tools:layout_conversion_absoluteHeight="50dp"
+        tools:layout_editor_absoluteY="50dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_conversion_absoluteWidth="392dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@tools:sample/full_names"
+        android:padding="5dp"
+        android:textColor="#121212"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/distance"
+        tools:layout_conversion_absoluteHeight="50dp"
+        tools:layout_editor_absoluteY="50dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_conversion_absoluteWidth="392dp" />
+</LinearLayout>
