@@ -3,6 +3,7 @@ package com.example.places
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.Window
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -10,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 class DetailedActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title.
+        supportActionBar?.hide(); //hide the title bar.
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailed)
 

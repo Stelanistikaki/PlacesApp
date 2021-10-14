@@ -2,15 +2,18 @@ package com.example.places
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.location.Location.distanceBetween
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.roundToInt
+
 
 class RecyclerviewItemAdapter(mItemList: List<Place>, currentLang: Double, currentLong: Double) : RecyclerView.Adapter<RecyclerviewItemAdapter.ViewHolder>() {
     private var placesList : List<Place> = mItemList
@@ -29,18 +32,18 @@ class RecyclerviewItemAdapter(mItemList: List<Place>, currentLang: Double, curre
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var address: TextView = view.findViewById(R.id.address)
-        var type: TextView = view.findViewById(R.id.type)
         var name: TextView = view.findViewById(R.id.name)
         var distance: TextView = view.findViewById(R.id.distance)
+        var type: ImageView = view.findViewById(R.id.typeImage)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val place: Place = this.placesList!![position]
-        holder.address.text = place.address
-        holder.type.text = place.type
         holder.name.text = place.name
         holder.distance.text = calculateDistance(place.location.lat, place.location.lon)
+        val icon : Drawable? = setTypeIcon(place.type)
+        if(icon != null)
+            holder.type.setImageDrawable(icon)
 
         holder.itemView.setOnClickListener {
             //put the place object in intent extra to get it in detailed activity
@@ -48,6 +51,20 @@ class RecyclerviewItemAdapter(mItemList: List<Place>, currentLang: Double, curre
             intent.putExtra("extraPlace", place)
             context.startActivity(intent)
         }
+    }
+
+    private fun setTypeIcon(type: String): Drawable? {
+        var icon: Drawable? = null
+        when (type) {
+            "bar" -> icon = AppCompatResources.getDrawable(context, R.drawable.bar_icon_foreground)
+            "playground" -> icon = AppCompatResources.getDrawable(context, R.drawable.play_icon_foreground)
+            "office" -> icon = AppCompatResources.getDrawable(context, R.drawable.office_icon_foreground)
+            "theater" -> icon = AppCompatResources.getDrawable(context, R.drawable.theater_icon_foreground)
+            "metro_station" -> icon = AppCompatResources.getDrawable(context, R.drawable.metro_icon_foreground)
+            "coffee_shop" -> icon = AppCompatResources.getDrawable(context, R.drawable.coffee_icon_foreground)
+            "restaurant" -> icon = AppCompatResources.getDrawable(context, R.drawable.restaurant_icon_foreground)
+        }
+        return icon
     }
 
     override fun getItemCount(): Int {
@@ -67,8 +84,8 @@ class RecyclerviewItemAdapter(mItemList: List<Place>, currentLang: Double, curre
         {
             var km = m * 1.0f / 1000
             km = (km * 10).roundToInt() * 1.0f / 10
-            return "$km km"
+            return "$km km Away"
         }
-        return "$m m"
+        return "$m m km Away"
     }
 }

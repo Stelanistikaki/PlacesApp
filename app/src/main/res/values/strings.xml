@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Places</string>
+    <string name="type_text">type image</string>
 </resources>

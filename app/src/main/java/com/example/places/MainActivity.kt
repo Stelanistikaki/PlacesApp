@@ -6,6 +6,7 @@ import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
 import android.view.View
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -26,6 +27,9 @@ class MainActivity : AppCompatActivity() {
     private var currentLat: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title.
+        supportActionBar?.hide(); //hide the title bar.
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
