@@ -17,6 +17,7 @@
         android:gravity="center"
         android:lineSpacingExtra="8sp"
         android:textAllCaps="true"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/detailedCode"
         app:layout_constraintTop_toBottomOf="@+id/detailedCode" />
