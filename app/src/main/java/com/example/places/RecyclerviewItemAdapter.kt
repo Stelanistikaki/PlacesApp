@@ -38,12 +38,11 @@ class RecyclerviewItemAdapter(mItemList: List<Place>, currentLang: Double, curre
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val place: Place = this.placesList!![position]
+        var place: Place = this.placesList!![position]
         holder.name.text = place.name
         holder.distance.text = calculateDistance(place.location.lat, place.location.lon)
-        val icon : Drawable? = setTypeIcon(place.type)
-        if(icon != null)
-            holder.type.setImageDrawable(icon)
+        val typeInt: Int = place.setTypeIcon()
+        holder.type.setImageDrawable(AppCompatResources.getDrawable(context, typeInt))
 
         holder.itemView.setOnClickListener {
             //put the place object in intent extra to get it in detailed activity
@@ -51,20 +50,6 @@ class RecyclerviewItemAdapter(mItemList: List<Place>, currentLang: Double, curre
             intent.putExtra("extraPlace", place)
             context.startActivity(intent)
         }
-    }
-
-    private fun setTypeIcon(type: String): Drawable? {
-        var icon: Drawable? = null
-        when (type) {
-            "bar" -> icon = AppCompatResources.getDrawable(context, R.drawable.bar_icon_foreground)
-            "playground" -> icon = AppCompatResources.getDrawable(context, R.drawable.play_icon_foreground)
-            "office" -> icon = AppCompatResources.getDrawable(context, R.drawable.office_icon_foreground)
-            "theater" -> icon = AppCompatResources.getDrawable(context, R.drawable.theater_icon_foreground)
-            "metro_station" -> icon = AppCompatResources.getDrawable(context, R.drawable.metro_icon_foreground)
-            "coffee_shop" -> icon = AppCompatResources.getDrawable(context, R.drawable.coffee_icon_foreground)
-            "restaurant" -> icon = AppCompatResources.getDrawable(context, R.drawable.restaurant_icon_foreground)
-        }
-        return icon
     }
 
     override fun getItemCount(): Int {
