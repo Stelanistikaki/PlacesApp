@@ -1,6 +1,5 @@
 package com.example.places
 
-import android.graphics.Movie
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

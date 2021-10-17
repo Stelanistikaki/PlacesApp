@@ -3,4 +3,6 @@
     <string name="type_text">type image</string>
     <string name="icon">typeicon</string>
     <string name="click_on_address_to_see_it_in_map">Click on address to see the map</string>
+    <string name="check_in">check in</string>
+    <string name="enable_internet_connection_and_then_restart_the_app">Enable Internet connection and then restart the App!</string>
 </resources>

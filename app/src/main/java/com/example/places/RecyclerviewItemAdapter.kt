@@ -2,7 +2,6 @@ package com.example.places
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.location.Location.distanceBetween
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.roundToInt
-
 
 class RecyclerviewItemAdapter(mItemList: List<Place>, currentLang: Double, currentLong: Double) : RecyclerView.Adapter<RecyclerviewItemAdapter.ViewHolder>() {
     private var placesList : List<Place> = mItemList
